@@ -8,3 +8,6 @@ Mijn idee is om een spel te maken in de vorm van een duck shooter van een kermis
 - misschien is er een knop om de doelwitten de versnellen om het moeilijker te maken.
 - je gebruikt je muis door te klikken op de doelwitten om erop te "schieten".
 - Er moet een teller zijn of een ander beeld, dat laat zien hoeveel punten er gescoord zijn of wat de prijs is.
+
+Inspiratie heb ik van het plays.org spel: duck shoot
+
