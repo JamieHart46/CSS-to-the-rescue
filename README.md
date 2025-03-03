@@ -10,4 +10,11 @@ Mijn idee is om een spel te maken in de vorm van een duck shooter van een kermis
 - Er moet een teller zijn of een ander beeld, dat laat zien hoeveel punten er gescoord zijn of wat de prijs is.
 
 Inspiratie heb ik van het plays.org spel: duck shoot
+<a>https://plays.org/duck-shoot/</a>
+
+<img src="inspiratie/Duck shoot.png" alt="Duckshootfoto">
+
+met verschillende doelwitten niet alleen eenden en ook doelwittend die niet geraakt mogen worden, of die meer punten geven.
+
+
 
