@@ -1,0 +1,78 @@
+/*Animation omvallen*/
+
+body {
+  overflow:hidden;
+}
+
+fieldset {
+  height: 200px;
+  width:fit-content;
+  display: flex;
+  align-items: center;
+  
+  animation-name: MoveBackandForth;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  background:gold;
+}
+
+label {
+  position:relative;
+  
+  width:70px;
+  height:70px;
+  display:block;
+  margin: 2em;
+  
+  transition: 2s;
+  transform-origin: bottom;
+}
+
+img {
+  display:block;
+  width: 100%;
+  height: 100%;
+}
+
+label:has(input:checked) {
+  transform:perspective(20em) rotateX(90deg);
+}
+
+input {
+  appearance:none;
+  
+  position:absolute;
+  inset:0;
+    
+  margin:0;
+}
+
+input[type="radio"] {
+  cursor:crosshair;
+}
+
+/*Animation back and forth*/
+
+@keyframes MoveBackandForth {
+   0% {
+    transform: translateX(-100%) scaleX(-1); 
+  }
+
+  50% {
+    transform: translateX(calc(100vw)) scaleX(-1); 
+  }
+  50.01% {
+    transform: translateX(calc(100vw)); 
+  }
+
+  100% {
+    transform: translateX(-100%); 
+  }
+}
+
+fieldset:nth-of-type(2) {
+  animation-duration: 12s;
+}
+

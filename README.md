@@ -18,3 +18,26 @@ met verschillende doelwitten niet alleen eenden en ook doelwittend die niet gera
 
 
 
+Week 2: Oefenen met animaties en de transform.
+Ik ben deze week begonnen in CodePen met de animatie van de de doelwitten die heen en weer bewegen, het omvallen van de doelwitten als erop geklikt wordt. Hier is de collectie te zien van alle oefeningen.
+https://codepen.io/collection/RPPqYx
+
+De animatie heb ik gemaakt met keyframes zoals hieronder te zien.
+
+<img src="Afbeeldingen/keyframes.png">
+
+Deze animatie zorgt ervoor dat de doelwitten heen en weer bewegen, op 50% draaien en op 100% weer terug draaien en dat allebei buiten beeld.
+Ook zijn de doelwitten input type radio. Dit zorgt ervoor dat wanneer de doelwitten geraakt worden deze omvallen en niet nog een keer geklikt kunnen worden.
+
+De doelwitten kunnen alleen gereset worden met de reset knop onderaan het scherm.
+
+Ik heb ook in illustrator de eendjes gemaakt met een doelwit erop en deze in twee verschillende kleuren.
+
+<img src="Afbeeldingen/Geel-eendje.png"> <img src="Afbeeldingen/Groen-eendje.png">
+
+Tot nu toe ziet het er zo uit en bewegen de twee fieldsets op verschillende snelheden heen en weer.
+
+<img src="Afbeeldingen/Week2-stand-van-zaken.png">
+
+Volgende week wil ik beginnen met uitzoeken hoe ik een counter kan maken voor hoeveel doelwitten er geraakt zijn.
+en misschien beginnen aan het ontwerp van de rest van het kraampje van het spel.
