@@ -47,3 +47,5 @@ Week 3: Counter for radio input.
 
 Onderzoek:
 https://www.hongkiat.com/blog/count-html-state-change/
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters
+https://codepen.io/una/pen/NxZaNr?editors=1100
