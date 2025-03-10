@@ -41,3 +41,9 @@ Tot nu toe ziet het er zo uit en bewegen de twee fieldsets op verschillende snel
 
 Volgende week wil ik beginnen met uitzoeken hoe ik een counter kan maken voor hoeveel doelwitten er geraakt zijn.
 en misschien beginnen aan het ontwerp van de rest van het kraampje van het spel.
+
+
+Week 3: Counter for radio input.
+
+Onderzoek:
+https://www.hongkiat.com/blog/count-html-state-change/
