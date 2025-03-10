@@ -43,7 +43,7 @@ Volgende week wil ik beginnen met uitzoeken hoe ik een counter kan maken voor ho
 en misschien beginnen aan het ontwerp van de rest van het kraampje van het spel.
 
 
-Week 3: Counter for radio input.
+Week 3: Counter, oude mannen knop, kraampje.....
 
 Onderzoek:
 https://www.hongkiat.com/blog/count-html-state-change/
