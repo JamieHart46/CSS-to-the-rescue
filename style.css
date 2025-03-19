@@ -39,6 +39,7 @@
     font-family: 'target-counter';
     src: url(fonts/digital-7.regular.ttf);
   }
+  /* https://www.1001fonts.com/digital-7-font.html  */
 
 }
 
@@ -77,6 +78,7 @@
     
     overflow:hidden;
     background-image: repeating-conic-gradient(var(--red) 0deg, var(--red) 20deg, var(--yellow) 20deg, var(--yellow) 40deg);
+    /* https://cssgradient.io/ */
     counter-reset: game;
   }
 
@@ -286,6 +288,7 @@
       content: "0";
     }
   }
+  /* https://www.youtube.com/watch?v=QVdWMbmXHjo&t=1700s */
 
   span {
     &::before {
@@ -419,6 +422,7 @@
   height: 100vh;
 
   background-image: repeating-linear-gradient(to right, #8F2121 0%, #de3333 4%, #de3333 8%);
+  /* https://cssgradient.io/ */
 
   position: absolute;
   display: grid;
@@ -454,6 +458,7 @@ h2 {
     justify-content: center;
   
     background-image: radial-gradient(circle, rgba(236,166,149,1) 0%, rgba(255,18,18,1) 95%);;
+    /* https://cssgradient.io/ */
     border: 0.45em solid var(--silver);
     box-shadow: 0 6px 8px 10px rgba(0, 0, 0, 0.1);
   
@@ -470,6 +475,7 @@ h2 {
 
   form:has(input[type="checkbox"]:checked) div label {
     background-image:radial-gradient(circle, rgba(174,238,194,1) 0%, rgba(84,176,71,1) 80%);
+    /* https://cssgradient.io/ */
   }
 
   form div:nth-last-of-type(5) {
