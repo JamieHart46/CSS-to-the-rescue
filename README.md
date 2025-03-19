@@ -18,6 +18,7 @@ met verschillende doelwitten niet alleen eenden en ook doelwittend die niet gera
 
 
 
+
 Week 2: Oefenen met animaties en de transform.
 Ik ben deze week begonnen in CodePen met de animatie van de de doelwitten die heen en weer bewegen, het omvallen van de doelwitten als erop geklikt wordt. Hier is de collectie te zien van alle oefeningen.
 https://codepen.io/collection/RPPqYx
@@ -41,6 +42,7 @@ Tot nu toe ziet het er zo uit en bewegen de twee fieldsets op verschillende snel
 
 Volgende week wil ik beginnen met uitzoeken hoe ik een counter kan maken voor hoeveel doelwitten er geraakt zijn.
 en misschien beginnen aan het ontwerp van de rest van het kraampje van het spel.
+
 
 
 
@@ -85,3 +87,37 @@ Aan het eind van week 3 ziet mijn werk er als volgt uit.
 
 Volgende week(de laatste week) ga ik kijken hoe ik een timer kan toevoegen en dat er een scherm komt, dat aangeeft hoeveel punten er gescoord zijn binnen een bepaalde tijd.
 
+
+
+
+Week 4: Responsiveness, status en feedback, new CSS architecture en responsiveness. 
+
+Voor de laatste week moet ik de status van knoppen  nog in beeld brengen. Bij de oude mannen knop is dat makkelijk te doen door wanneer de checkbox gechecked is de achtergrond kleur te veranderen naar groen. Dat heb ik gedaan met een gradient, met een beetje wit in het midden dat lijkt op een lampje, waarbij een rood lampje uit staat en groen aan. 
+
+Dan heb ik de counter een nieuw lettertype gegeven en een nieuwe achtergrond, waardoor het lijkt op een digitale teller.
+
+Toen ben ik begonnen aan het eindscherm, waarop de gescoorde punten te zien zijn en de knop komt om opnieuw te beginnen. 
+Inplaats van een submit knop voor de form, heb ik er nu een link van gemaakt, want een submit knop kan niet animaties resetten, dus was het beter om de hele pagina te resetten. 
+De achtergrond van het scherm heeft dezelfde gradient als de gordijnen in het ontwerp, waardoor het lijkt op een gordijn dat omlaag komt en het spel bedekt. In de Div van het scherm zitten de text Game Over en de knop, en te counter die in de console van het spel zit, kon niet tellen als deze erin zat. 
+Daarom moest ik de positie van de counter zo maken zodat het voor het gordijn blijft als deze omlaag komt met z-index en position: absolute. 
+Het game over scherm ziet er als volgt uit uiteindelijk met de animatie.
+
+<img src="Readme,afbeeldingen/Eindscherm.gif">
+
+
+Voor het aftellen wilde ik het maken dat de user 20 seconden heeft om zoveel mogelijk te raken. Nils gaf van een college een voorbeeld van een css spel met hetzelfde concept.
+
+https://codepen.io/elad2412/pen/wvabjXy 
+https://www.youtube.com/watch?v=QVdWMbmXHjo&t=1700s 
+
+
+Hierin telt het af van 100 naar 0 met animations. Dit heb ik dus omgezet van 100 naar 0, om van 20 naar 0 af te tellen. 
+Ik moest twee animaties gebruiken, één voor ieder getal.
+
+<img src="Readme,afbeeldingen/code for timer.png"> <img src="Readme,afbeeldingen/code for timer2.png">
+
+De afteller heb ik dezelfde stijl gegeven als de score counter en ernaast gezet, op de plek waar eerste de reset knop zat. 
+
+Het tweede wat ik deze week nog moest doen, is twee van de nieuwe css architecture features invoeren. Ik heb gekozen voor Css nesting en @layers.
+
+Dan moest ik nog responsiveness in de hoogte maken voor het spel. Met media queries heb ik ervoor gezorgt dat als de pagina een bepaalde hoeveelheid px is, dan veranderd de display van de onderste fieldset naar none. Wordt het nog kleiner gemaakt, verdwijnt ook de tweede fieldset. Dit werkt ook voor de score counter als het eindscherm naar beneden is. Dan blijft deze in beeld als het scherm kleiner wordt.

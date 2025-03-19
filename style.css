@@ -1,325 +1,612 @@
-@property --100vw {
-  syntax: "<length>";
-  initial-value: 0px;
-  inherits: true;
-}
-
-@property --process {
-  syntax: "<number>";
-  initial-value: 0;
-  inherits: true;
-}
+@layer Roots, Base, Animations,Opmaak, Extra;
 
 
-
-/*Root*/
-:root {
-  --red: #de3333;
-  --dark-red: #BA2B2B;
-  --yellow: #f0d160;
-  --gold: #D1B654;
-
-  --fair-font: "Playfair Display", serif;
-  
-/*  Variables voor op en neer gaan.  */
-   --duration-per-1000-px: 6s;
-  --frequency-per-1000-px: 3;
-  --amplitude: 1em;
-  --duck-width: 8em;
-  --duck-top: 0;
-  
-  --100vw: 100vw;
-  --px-width: tan(atan2(var(--100vw), 1px));
-  --duration: calc(var(--px-width) / 1000 * var(--duration-per-1000-px));
-}
-
-* {
-  font-family: var(--fair-font);
-  font-style: Italic;
-  font-weight: 800;
-}
-
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-  background-color: var(--red);
-  border: 0.25em solid var(--gold);
-  box-shadow: 0px 10px 5px -1px rgba(0,0,0,0.34);
-
-  z-index: 4;
-
-  color: white;
-}
-
-h1 {
-  background-color: var(--yellow);
-  border: 0.25em solid var(--gold);
-  padding: 0.5em;
-  margin-top: 0.12em;
-}
-
-/*Animation omvallen*/
-
-body {
-  margin: 0;
-  counter-reset: game;
-  overflow:hidden;
-  background-image: repeating-conic-gradient(var(--red) 0deg, var(--red) 20deg, var(--yellow) 20deg, var(--yellow) 40deg);
-}
-
-form {
-  cursor: url('./Afbeeldingen/target-scope.png') 16 16, crosshair;
-  /* https://www.svgbackgrounds.com/elements/custom-css-cursors/  */
-  
-  height: 100%;
-}
-
-
-fieldset {
-  height: 8em;
-  width:fit-content;
-  display: flex;
-  align-items: center;
-  
-  animation-name: MoveBackandForth;
-  animation-duration: 22s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-
-  border: none;
-}
-
-label {
-  position:relative;
-  z-index: 0;
-  
-  width: 5em;
-  height: 5em;
-  display:block;
-  margin: 2em;
-  
-  transition: 2s;
-  transform-origin: bottom;
-  
-  top: calc(var(--amplitude) + var(--duck-top));
-  animation: 
-    move var(--duration) linear infinite,
-    process var(--duration) linear infinite;
-  
-    transform: translateY(calc(
-      sin(var(--process) / 500 * pi * var(--frequency-per-1000-px)) * var(--amplitude)
-    )); 
-}
-
-@keyframes process {
-  from {
-    --process: 0;
+@layer Roots {
+  @property --100vw {
+    syntax: "<length>";
+    initial-value: 0px;
+    inherits: true;
   }
-  to {
-    --process: var(--px-width);
+
+  @property --process {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: true;
   }
-}
 
-img {
-  display:block;
-  width: 100%;
-  height: 100%;
+  :root {
+    --red: #de3333;
+    --dark-red: #BA2B2B;
+    --yellow: #f0d160;
+    --gold: #D1B654;
+    --silver: #BDBDBD;
 
-  user-select: none;
-}
-
-fieldset label:has(input:checked) {
-  transform:perspective(20em) rotateX(90deg);
-}
-
-input {
-  appearance:none;
-  
-  position:absolute;
-  inset:0;
+    --fair-font: "Playfair Display", serif;
     
-  margin:0;
-}
-
-input[type="radio"] {
-  cursor: url('./Afbeeldingen/target-scope.png') 16 16, crosshair;
- 
-}
-
-/*Animation back and forth*/
-
-@keyframes MoveBackandForth {
-   0% {
-    transform: translateX(-100%) scaleX(-1); 
+  /*  Variables voor op en neer gaan.  */
+    --duration-per-1000-px: 6s;
+    --frequency-per-1000-px: 3;
+    --amplitude: 1em;
+    --duck-width: 8em;
+    --duck-top: 0;
+    
+    --100vw: 100vw;
+    --px-width: tan(atan2(var(--100vw), 1px));
+    --duration: calc(var(--px-width) / 1000 * var(--duration-per-1000-px));
   }
 
-  50% {
-    transform: translateX(calc(100vw)) scaleX(-1); 
-  }
-  50.01% {
-    transform: translateX(calc(100vw)); 
+  @font-face {
+    font-family: 'target-counter';
+    src: url(fonts/digital-7.regular.ttf);
   }
 
-  100% {
-    transform: translateX(-100%); 
+}
+
+
+
+
+
+@layer Base {
+    header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    background-color: var(--red);
+    border: 0.25em solid var(--gold);
+    box-shadow: 0px 10px 5px -1px rgba(0,0,0,0.34);
+
+    z-index: 4;
+
+    color: white;
+
+    h1 {
+      background-color: var(--yellow);
+      border: 0.25em solid var(--gold);
+      padding: 0.5em;
+      margin: 0.12em 0;
+
+      text-shadow: 2px 4px 6px black;
+      font-style: italic;
+    }
+  }
+
+  body {
+    margin: 0;
+    
+    overflow:hidden;
+    background-image: repeating-conic-gradient(var(--red) 0deg, var(--red) 20deg, var(--yellow) 20deg, var(--yellow) 40deg);
+    counter-reset: game;
+  }
+
+  form {
+    height: 100vh;
+    
+    fieldset {
+      height: 8em;
+      width:fit-content;
+      display: flex;
+      align-items: center;
+
+      border: none;      
+    }
+  }
+
+  * {
+    cursor: url('./Afbeeldingen/target-scope.png') 16 16, crosshair;
+    /* https://www.svgbackgrounds.com/elements/custom-css-cursors/  */
+  }
+
+}
+
+
+
+
+
+@layer Animations {
+  /* Heen en weer bewegen en omvallen */
+    @keyframes MoveBackandForth {
+    0% {
+      transform: translateX(-100%) scaleX(-1); 
+    }
+
+    50% {
+      transform: translateX(calc(100vw)) scaleX(-1); 
+    }
+    50.01% {
+      transform: translateX(calc(100vw)); 
+    }
+
+    100% {
+      transform: translateX(-100%); 
+    }
+  }
+
+  fieldset {
+    animation-name: MoveBackandForth;
+    animation-duration: 22s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  fieldset:nth-of-type(2) {
+    animation-duration: 14s;
+  }
+  
+  fieldset:nth-of-type(3) {
+    animation-duration: 18s;
+  }
+
+  fieldset label:has(input:checked) {
+    transform:perspective(20em) rotateX(90deg);
+  }
+
+  /* Oude manner knop */
+  form:has(input[type="checkbox"]:checked) fieldset {
+    animation-duration: 27s;
+  }
+
+  form:has(input[type="checkbox"]:checked) fieldset:nth-of-type(2) {
+    animation-duration: 22s;
+  }
+  
+  form:has(input[type="checkbox"]:checked) fieldset:nth-of-type(3) {
+    animation-duration: 25s;
+  }
+
+
+  /* Met behulp van chatgpt de selector gemaakt*/
+  form:has(input[type="checkbox"]:checked) fieldset:nth-of-type(2) {
+    animation-duration: 22s;
+  }
+
+  form:has(input[type="checkbox"]:checked) fieldset:nth-of-type(3) {
+    animation-duration: 25s;
+  }
+/* :nth-of-type(2) en (3) toegevoegd zodat de tweede fieldset nog steeds sneller gaat en niet beide rijen gelijk bewegen */
+
+
+  /* Op en neer eendjes */
+  label {
+    transition: 2s;
+    transform-origin: bottom;
+
+    top: calc(var(--amplitude) + var(--duck-top));
+    animation: 
+      move var(--duration) linear infinite,
+      process var(--duration) linear infinite;
+    
+      transform: translateY(calc(
+        sin(var(--process) / 500 * pi * var(--frequency-per-1000-px)) * var(--amplitude)
+      )); 
+  }
+
+  /* Snelheid eendjes per 1000px, bij kleiner maken scherm. */
+  @keyframes process {
+      from {
+        --process: 0;
+      }
+      to {
+        --process: var(--px-width);
+      }
+    }
+    /* 9elements van Nils */
+  
+
+
+    /* Game Over scherm omlaag */
+    @keyframes GameOver {
+    from {
+      top: -100vh;
+    }
+    to {
+      top: 0;
+    }
+  }
+
+  div:first-child {
+    animation-name: GameOver;
+    animation-duration: 3s;
+    animation-delay: 20s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+
+  /* Countdown timer spel */
+  @keyframes countdown1 {
+    0%{
+      content:"9";
+    }
+    5%{
+      content:"8";
+    }
+    10%{
+      content:"7";
+    }
+    15%{
+      content:"6";
+    }
+    20%{
+      content:"5";
+    }
+    25%{
+      content:"4";
+    }
+    30%{
+      content:"3";
+    }
+    35%{
+      content:"2";
+    }
+    40%{
+      content:"1";
+    }
+    45%{
+      content:"0";
+    }
+    50%{
+      content:"9";
+    }
+    55%{
+      content:"8";
+    }
+    60%{
+      content:"7";
+    }
+    65%{
+      content:"6";
+    }
+    70%{
+      content:"5";
+    }
+    75%{
+      content:"4";
+    }
+    80%{
+      content:"3";
+    }
+    85%{
+      content:"2";
+    }
+    90%{
+      content:"1";
+    }
+    95%, 100%{
+      content:"0";
+    }
+  }
+  
+  @keyframes countdown2 {
+    0%, 44.1%{
+      content: "1";
+    }
+    44.2%, 100% {
+      content: "0";
+    }
+  }
+
+  span {
+    &::before {
+      content:"";
+      animation-name: countdown2;
+      animation-duration: 21s;
+      animation-delay: 0s;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+    
+    &::after {
+      content:"";
+      animation-name: countdown1;
+      animation-duration: 21s;
+      animation-delay: 0s;
+      animation-timing-function: step(10, end);
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
   }
 }
 
-fieldset:nth-of-type(2) {
-  animation-duration: 14s;
+
+
+
+@layer Opmaak{
+  h3 {
+    background-color: black;
+    border: 0.25em solid var(--silver);
+    box-shadow: 0 6px 8px 10px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+    z-index: 2000;
+  
+    padding: 0.5em;
+    margin: 1em 0;
+  
+    color: var(--gold);
+    font-size: 2em;
+  
+    font-family: 'target-counter', sans-serif;
+  }
+  
+  a {
+    background-color: red;
+    border: 0.25em solid var(--silver);
+    box-shadow: 0 6px 8px 10px rgba(0, 0, 0, 0.1);
+  
+    padding: 0.5em 0;
+    margin-bottom: 1em;
+    margin: 0 10em;
+    max-height: 3em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -4em;
+  
+    color: white;
+    font-size: 1.5em;
+    font-family: var(--fair-font);
+    font-style: Italic;
+    font-weight: 800;
+    text-decoration: none;
+  
+    transition: 0.3s ease-in-out;
+  }
+  
+  span {
+    background-color: black;
+    border: 0.25em solid var(--silver);
+    box-shadow: 0 6px 8px 10px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    padding: 0.5em;
+    margin: 1em 0;
+  
+    color: var(--gold);
+    font-size: 2em;
+    min-width: 1em;
+  
+    font-family: 'target-counter', sans-serif;
 }
 
-fieldset:nth-of-type(3) {
-  animation-duration: 18s;
-}
+  input {
+    appearance:none;
+    
+    position:absolute;
+    inset:0;
+      
+    margin:0;
+  }
 
-/* Counter */
-input:checked {
-  counter-increment: game;
-}
+  label {
+    position:relative;
+    z-index: 0;
+    
+    width: 5em;
+    height: 5em;
+    display:block;
+    margin: 2em;
+    
+    font-family: var(--fair-font);
+    font-style: Italic;
+    font-weight: 800;
 
-h3::after {
-  content: counter(game);
-}
+  }
 
+  img {
+    display:block;
+    width: 100%;
+    height: 100%;
+  }
 
+  div {
+    box-shadow: 0 4px 6px 8px rgba(0, 0, 0, 0.1);
+  }
 
-h3 {
-  background-color: red;
-  border: 0.25em solid var(--dark-red);
-  box-shadow: 0 6px 8px 10px rgba(0, 0, 0, 0.1);
+  div:first-child {
+  width: 100%;
+  height: 100vh;
 
-  padding: 1.25em;
+  background-image: repeating-linear-gradient(to right, #8F2121 0%, #de3333 4%, #de3333 8%);
 
-  color: white;
-  font-size: 1.17em;
-}
-
-button {
-  background-color: red;
-  border: 0.25em solid var(--dark-red);
-  box-shadow: 0 6px 8px 10px rgba(0, 0, 0, 0.1);
-
-  padding: 1.25em;
-
-  color: white;
-  font-size: 1.17em;
-
-  cursor: pointer;
-}
-
-/* Oude mannen knop */
-div label{
-  margin: 0;
-
-  display: flex;
-  align-items: center;
+  position: absolute;
+  display: grid;
   justify-content: center;
 
-  background-color: red;
-  border: 0.25em solid var(--dark-red);
-  box-shadow: 0 6px 8px 10px rgba(0, 0, 0, 0.1);
+  z-index: 200;
+  top: -100vh;
+}
 
-  color: white;
-  font-size: 1.17em;
-  width: 9.5em;
-  height: 3.8em;
+h2 {
+  color: var(--gold);
+  font-size: 10vw;
+  font-style: italic;
+  text-shadow: 2px 4px 6px black;
 
-  cursor: pointer;
-  animation: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 1em;
+
+  max-height: 1.5em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+  div label{
+    margin: 0;
   
-  top: 0.25em;
-  z-index: 1;
-}
-
-form:has(input[type="checkbox"]:checked) fieldset {
-  animation-duration: 27s;
-}
-/* Met behulp van chatgpt de selector gemaakt*/
-
-form:has(input[type="checkbox"]:checked) fieldset:nth-of-type(2) {
-  animation-duration: 22s;
-}
-/* :nth-of-type(2) toegevoegd zodat de tweede fieldset nog steeds sneller gaat en niet beide rijen gelijk bewegen */
-
-form:has(input[type="checkbox"]:checked) fieldset:nth-of-type(3) {
-  animation-duration: 25s;
-}
-
-
-
-/* Opmaak speelkraam */
-
-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   
-  box-shadow: 0 4px 6px 8px rgba(0, 0, 0, 0.1);
-}
-
-form div:nth-last-of-type(5) {
-   display: flex;
-   align-items: center;
-   justify-content: space-evenly;
+    background-image: radial-gradient(circle, rgba(236,166,149,1) 0%, rgba(255,18,18,1) 95%);;
+    border: 0.45em solid var(--silver);
+    box-shadow: 0 6px 8px 10px rgba(0, 0, 0, 0.1);
   
-   background-image:repeating-linear-gradient(to right, var(--red), var(--red) 5%, white 5%, white 10%);
-   border: 0.5em solid var(--gold);
+    color: white;
+    font-size: 1em;
+    width: 9.5em;
+    height: 3.5em;
+  
+    animation: none;
+    transition: 0.3s ease-in-out;
+    
+    z-index: 1;
+  }
+
+  form:has(input[type="checkbox"]:checked) div label {
+    background-image:radial-gradient(circle, rgba(174,238,194,1) 0%, rgba(84,176,71,1) 80%);
+  }
+
+  form div:nth-last-of-type(5) {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
    
-   padding: 0.5em;
-   position:relative;
-   z-index: 2;
-   width: 100%;
+    background-image:repeating-linear-gradient(to right, var(--red), var(--red) 5%, white 5%, white 10%);
+    border: 0.5em solid var(--gold);
+    bottom:0;
+    z-index: 2;
+    width: 100%; 
+ }
+ 
+ form div:nth-last-of-type(4) {
+   position:absolute;
+   right: -1em;
+   top:0;
+   height: 100%;
+   width: 12em;
+   border-radius: 10% 100% 0% 100% / 0% 0% 100% 100% ;
+   
+   background-image: repeating-linear-gradient(80deg, #8F2121 0%, #de3333 5%, #de3333 10%);
+   box-shadow: -14px 18px 5px -1px rgba(0,0,0,0.34);
+ }
+ 
+ form div:nth-last-of-type(3) {
+   position:absolute;
+   left: -1em;
+   top:0;
+   height: 100%;
+   width: 12em;
+   border-radius: 10% 51% 91% 10% / 0% 0% 100% 0% ;
+   /* https://9elements.github.io/fancy-border-radius/full-control.html#0.10.0.100-0.0.0.100-. */
+   
+   background-image: repeating-linear-gradient(280deg, #8F2121 0%, #de3333 5%, #de3333 10%);
+   box-shadow: 14px 18px 5px -1px rgba(0,0,0,0.34)
+ }
+ 
+ form div:nth-last-of-type(2) {
+   position:absolute;
+   right:0;
+   top:0;
+   height: 100%;
+   width: 3.5em;
+ 
+   background-color: brown;
+   border: 1px solid black;
+ 
+   z-index: 3;
+ }
+ 
+ form div:nth-last-of-type(1) {
+   position:absolute;
+   left:0;
+   top:0;
+   height: 100%;
+   width: 3.5em;
+ 
+   background-color: brown;
+   border: 1px solid black;
+ 
+   z-index: 3;
+ }
 }
 
-form div:nth-last-of-type(4) {
-  position:absolute;
-  right: -1em;
-  top:0;
-  height: 100%;
-  width: 12em;
-  border-radius: 10% 100% 0% 100% / 0% 0% 100% 100% ;
+
+
+
+
+@layer Extra {
+
+
+  img {
+    user-select: none;
+  }
+
+  /* Counter */
+  input[type=radio]:checked {
+    counter-increment: game;
+  }
+
+  h3::after {
+    content: counter(game);
+  }
+
+
+  /* Hover */
+  a:hover {
+    scale: 1.1;
+  }
   
-  background-image: repeating-linear-gradient(80deg, #8F2121 0%, #de3333 5%, #de3333 10%);
-  box-shadow: -14px 18px 5px -1px rgba(0,0,0,0.34);
-}
+  div label:hover {
+    scale: 1.1;
+    transition: 0;
+  }
 
-form div:nth-last-of-type(3) {
-  position:absolute;
-  left: -1em;
-  top:0;
-  height: 100%;
-  width: 12em;
-  border-radius: 10% 51% 91% 10% / 0% 0% 100% 0% ;
-  /* https://9elements.github.io/fancy-border-radius/full-control.html#0.10.0.100-0.0.0.100-. */
+
+  /* Responsiveness height */
+  @media screen and (max-height: 620px) {
+    fieldset:nth-of-type(3) {
+      display: none;
+    }
+  }
+
+  @media screen and (max-height: 490px) {
+    fieldset:nth-of-type(2) {
+      display: none;
+    }
+  }
+/* Als het scherm 620px of minder hoog is, wordt het derde fieldset met eendjes ontzichtbaar en als het kleiner dan 490px is de tweede ook. */
+
+  h3 {
+    background-color: black;
+    border: 0.25em solid var(--silver);
+    box-shadow: 0 6px 8px 10px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+    z-index: 2000;
   
-  background-image: repeating-linear-gradient(280deg, #8F2121 0%, #de3333 5%, #de3333 10%);
-  box-shadow: 14px 18px 5px -1px rgba(0,0,0,0.34)
+    padding: 0.5em;
+    margin: 1em 0;
+  
+    color: var(--gold);
+    font-size: 2em;
+  
+    font-family: 'target-counter', sans-serif;
+  }
 }
 
 
-form div:nth-last-of-type(2) {
-  position:absolute;
-  right:0;
-  top:0;
-  height: 100%;
-  width: 3.5em;
 
-  background-color: brown;
-  border: 1px solid black;
 
-  z-index: 3;
-}
 
-form div:nth-last-of-type(1) {
-  position:absolute;
-  left:0;
-  top:0;
-  height: 100%;
-  width: 3.5em;
 
-  background-color: brown;
-  border: 1px solid black;
 
-  z-index: 3;
-}
