@@ -27,12 +27,14 @@
     --duration-per-1000-px: 6s;
     --frequency-per-1000-px: 3;
     --amplitude: 1em;
-    --duck-width: 8em;
+
     --duck-top: 0;
     
     --100vw: 100vw;
     --px-width: tan(atan2(var(--100vw), 1px));
     --duration: calc(var(--px-width) / 1000 * var(--duration-per-1000-px));
+
+    /* Zorgt ervoor dat de snelheid van de bewegende eendjes afhankelijk is van de breedte van het scherm niet van de animatie */
   }
 
   @font-face {
@@ -87,7 +89,6 @@
     
     fieldset {
       height: 8em;
-      width:fit-content;
       display: flex;
       align-items: center;
 
@@ -148,15 +149,6 @@
   form:has(input[type="checkbox"]:checked) fieldset {
     animation-duration: 27s;
   }
-
-  form:has(input[type="checkbox"]:checked) fieldset:nth-of-type(2) {
-    animation-duration: 22s;
-  }
-  
-  form:has(input[type="checkbox"]:checked) fieldset:nth-of-type(3) {
-    animation-duration: 25s;
-  }
-
 
   /* Met behulp van chatgpt de selector gemaakt*/
   form:has(input[type="checkbox"]:checked) fieldset:nth-of-type(2) {
